@@ -1,11 +1,12 @@
 from interface_chessman import IChessman
+from enums import EChessmanType, ESide
 
 
 class TChessman(IChessman):
     def __init__(self, chessman_type, position, side):
-        self.chessman_type = chessman_type
+        self.chessman_type = EChessmanType(chessman_type)
         self.position = position
-        self.side = side
+        self.side = ESide(side)
 
     def get_position(self):
         return self.position
