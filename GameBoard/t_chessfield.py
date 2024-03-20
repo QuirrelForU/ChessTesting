@@ -1,3 +1,4 @@
+
 class TChessField:
     def __init__(self, row, col):
         self.row = row

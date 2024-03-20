@@ -1,5 +1,5 @@
-from interface_chessman import IChessman
-from enums import EChessmanType, ESide
+from Chessman.interface_chessman import IChessman
+from Chessman.enums import EChessmanType, ESide
 
 
 class TChessman(IChessman):

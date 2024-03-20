@@ -1,4 +1,4 @@
-from t_chessfield import TChessField
+from GameBoard.t_chessfield import TChessField
 
 
 class Chessboard:

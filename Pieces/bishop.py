@@ -6,7 +6,7 @@ class Bishop(TChessman):
     def __init__(self, position, side):
         super().__init__(EChessmanType.ROOK, position, side)
 
-    def available_moves(self):
+    def available_moves(self, chessboard):
         available_positions = []
 
         directions = [(1, 1), (-1, 1), (-1, -1), (1, -1)]
@@ -17,7 +17,7 @@ class Bishop(TChessman):
                 new_row, new_col = row + i * dx, col + i * dy
                 if 0 <= new_row < 8 and 0 <= new_col < 8:
                     available_positions.append((new_row, new_col))
-                    if self.position.board.is_busy((new_row, new_col)):
+                    if chessboard.get_field(new_row,new_col).is_busy:
                         break
                 else:
                     break
