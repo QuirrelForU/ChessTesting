@@ -12,5 +12,4 @@ class TChessman(IChessman):
         return self.position
 
     def go_to_position(self, new_position):
-        # Ваша логика для перемещения фигуры на новую позицию
-        pass
+        self.position = new_position
