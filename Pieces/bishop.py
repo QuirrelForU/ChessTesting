@@ -17,13 +17,12 @@ class Bishop(TChessman):
                 new_row, new_col = row + i * dx, col + i * dy
                 if 0 <= new_row < 8 and 0 <= new_col < 8:
                     if chessboard.get_field(new_row, new_col).is_busy:
-                        # Add the position if it's occupied by an opponent's piece and then break
                         if chessboard.get_field(new_row, new_col).occupied_by.side != self.side:
                             available_positions.append((new_row, new_col))
-                        break  # Stop checking further positions in this direction
+                        break
                     else:
                         available_positions.append((new_row, new_col))
                 else:
-                    break  # Outside the board
+                    break
 
         return available_positions
