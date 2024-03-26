@@ -33,7 +33,7 @@ class TChessMove:
             raise ValueError("Invalid move")
 
         self.chessboard.get_field(*self.start_position).occupied_by = None
-        self.piece.go_to_position(TChessField(*self.end_position))
+        self.piece.go_to_position(self.end_position)
         self.chessboard.get_field(*self.end_position).occupied_by = self.piece
 
         if self.captured_piece:

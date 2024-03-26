@@ -2,6 +2,8 @@ from Chessman.interface_chessman import IChessman
 from Chessman.enums import EChessmanType, ESide
 from typing import Tuple
 
+from GameBoard import Chessboard
+
 
 class TChessman(IChessman):
     """
@@ -26,3 +28,6 @@ class TChessman(IChessman):
 
     def go_to_position(self, new_position: Tuple[int, int]):
         self.position = new_position
+
+    def available_moves(self, chessboard: Chessboard):
+        pass
