@@ -16,9 +16,11 @@ class Rook(TChessman):
             for i in range(1, 8):
                 new_row, new_col = row + i * dx, col + i * dy
                 if 0 <= new_row < 8 and 0 <= new_col < 8:
-                    available_positions.append((new_row, new_col))
                     if chessboard.get_field(new_row, new_col).is_busy:
+                        if chessboard.get_field(new_row, new_col).occupied_by.side != self.side:
+                            available_positions.append((new_row, new_col))
                         break
+                    available_positions.append((new_row, new_col))
                 else:
                     break
 
