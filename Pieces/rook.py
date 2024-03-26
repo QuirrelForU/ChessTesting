@@ -12,7 +12,7 @@ class Rook(TChessman):
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
         for dx, dy in directions:
-            row, col = self.position.row, self.position.col
+            row, col = self.position[0], self.position[1]
             for i in range(1, 8):
                 new_row, new_col = row + i * dx, col + i * dy
                 if 0 <= new_row < 8 and 0 <= new_col < 8:
