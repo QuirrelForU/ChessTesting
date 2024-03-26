@@ -1,12 +1,25 @@
+from typing import Tuple, List
+
 from Chessman.t_chessman import TChessman
-from Chessman.enums import EChessmanType
+from Chessman.enums import EChessmanType, ESide
+from GameBoard import Chessboard
 
 
 class Bishop(TChessman):
-    def __init__(self, position, side):
+    """
+    Represents a bishop chess piece, inheriting from TChessman.
+    """
+
+    def __init__(self, position: Tuple[int, int], side: ESide):
         super().__init__(EChessmanType.BISHOP, position, side)
 
-    def available_moves(self, chessboard):
+    def available_moves(self, chessboard: Chessboard) -> List[Tuple[int, int]]:
+        """
+        Calculate the available moves for the bishop on the given chessboard.
+
+        :param chessboard: The chessboard on which to calculate the moves.
+        :return: A list of tuples representing the available move coordinates.
+        """
         available_positions = []
 
         directions = [(1, 1), (-1, 1), (-1, -1), (1, -1)]
