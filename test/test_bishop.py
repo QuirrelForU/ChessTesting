@@ -31,8 +31,7 @@ class TestBishop(unittest.TestCase):
     def test_available_moves_empty_board(self):
         bishop = Bishop(TChessField(3, 3), ESide.WHITE)
         expected_positions = {(2, 2), (1, 1), (0, 0), (4, 4), (5, 5), (6, 6), (7, 7),
-                              (2, 4), (1, 5), (0, 6), (4, 2), (5, 1), (6, 0), (4, 4),
-                              (5, 3), (6, 2), (7, 1)}
+                              (2, 4), (1, 5), (0, 6), (4, 2), (5, 1), (6, 0), (4, 4), }
         available_positions = set(bishop.available_moves(self.chessboard))
         self.assertEqual(available_positions, expected_positions)
 
