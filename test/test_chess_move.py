@@ -26,17 +26,14 @@ class TestTChessMove(unittest.TestCase):
             move.execute()
 
     def test_capture_move(self):
-        pawn = TChessman(EChessmanType.PAWN, (1, 1), ESide.WHITE)
-        rook = Rook((1, 3), ESide.BLACK)
-        self.chessboard.get_field(1, 1).occupied_by = pawn
-        self.chessboard.get_field(1, 3).occupied_by = rook
-        move = TChessMove(self.chessboard, pawn, (1, 3))
+        bishop = Bishop((1, 1), ESide.WHITE)
+        enemy_piece = TChessman(EChessmanType.PAWN, (2, 2), ESide.BLACK)  # Enemy piece acting as a pawn
+        self.chessboard.get_field(1, 1).occupied_by = bishop
+        self.chessboard.get_field(2, 2).occupied_by = enemy_piece
+        move = TChessMove(self.chessboard, bishop, (2, 2))
         move.execute()
         self.assertIsNone(self.chessboard.get_field(1, 1).occupied_by)
-        self.assertEqual(self.chessboard.get_field(1, 3).occupied_by, pawn)
-        self.assertIsNone(rook.position)  # Assuming this is how we mark captured pieces
-        self.assertEqual(str(move), 'b2xb4')
+        self.assertEqual(self.chessboard.get_field(2, 2).occupied_by, bishop)
+        self.assertIsNone(enemy_piece.position)  # Assuming this is how we mark captured pieces
+        self.assertEqual(str(move), 'Bb2xc3')
 
-
-if __name__ == '__main__':
-    unittest.main()
