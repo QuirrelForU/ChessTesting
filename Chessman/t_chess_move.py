@@ -33,15 +33,15 @@ class TChessMove:
             move_notation += self.piece.chessman_type.value[0]
 
         # Starting position (optional in real notation, included here for clarity)
-        move_notation += chr(self.start_position.col + ord('a'))
-        move_notation += str(self.start_position.row + 1)
+        move_notation += chr(self.start_position[0] + ord('a'))
+        move_notation += str(self.start_position[1] + 1)
 
         # Capture notation
         if self.captured_piece:
             move_notation += 'x'
 
         # Ending position
-        move_notation += chr(self.end_position.col + ord('a'))
-        move_notation += str(self.end_position.row + 1)
+        move_notation += chr(self.end_position[0] + ord('a'))
+        move_notation += str(self.end_position[1] + 1)
 
         return move_notation
