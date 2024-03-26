@@ -10,7 +10,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop(board.get_field(3, 3), "White")
 
         available_positions = bishop.available_moves(board)
-
+        print(available_positions)
         self.assertIn((0, 0), available_positions)
         self.assertIn((1, 1), available_positions)
         self.assertIn((2, 2), available_positions)

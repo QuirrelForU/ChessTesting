@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class EChessmanType(Enum):
     KING = "King"
     QUEEN = "Queen"
@@ -7,6 +8,7 @@ class EChessmanType(Enum):
     BISHOP = "Bishop"
     KNIGHT = "Knight"
     PAWN = "Pawn"
+
 
 class ESide(Enum):
     WHITE = "White"

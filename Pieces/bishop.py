@@ -4,7 +4,7 @@ from Chessman.enums import EChessmanType
 
 class Bishop(TChessman):
     def __init__(self, position, side):
-        super().__init__(EChessmanType.ROOK, position, side)
+        super().__init__(EChessmanType.BISHOP, position, side)
 
     def available_moves(self, chessboard):
         available_positions = []
