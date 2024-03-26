@@ -1,12 +1,31 @@
+from typing import Tuple, List
+
 from Chessman.t_chessman import TChessman
-from Chessman.enums import EChessmanType
+from Chessman.enums import EChessmanType, ESide
+from GameBoard import Chessboard
 
 
 class Rook(TChessman):
-    def __init__(self, position, side):
+    """
+    Represents a rook chess piece, inheriting from TChessman.
+    """
+
+    def __init__(self, position: Tuple[int, int], side: ESide):
+        """
+        Initialize a rook with its position and side.
+
+        :param position: The position of the rook on the board.
+        :param side: The side (color) of the rook.
+        """
         super().__init__(EChessmanType.ROOK, position, side)
 
-    def available_moves(self, chessboard):
+    def available_moves(self, chessboard: Chessboard) -> List[Tuple[int, int]]:
+        """
+        Calculate the available moves for the rook on the given chessboard.
+
+        :param chessboard: The chessboard on which to calculate the moves.
+        :return: A list of tuples representing the available move coordinates.
+        """
         available_positions = []
 
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
