@@ -16,10 +16,14 @@ class Bishop(TChessman):
             for i in range(1, 8):
                 new_row, new_col = row + i * dx, col + i * dy
                 if 0 <= new_row < 8 and 0 <= new_col < 8:
-                    available_positions.append((new_row, new_col))
-                    if chessboard.get_field(new_row,new_col).is_busy:
-                        break
+                    if chessboard.get_field(new_row, new_col).is_busy:
+                        # Add the position if it's occupied by an opponent's piece and then break
+                        if chessboard.get_field(new_row, new_col).occupied_by.side != self.side:
+                            available_positions.append((new_row, new_col))
+                        break  # Stop checking further positions in this direction
+                    else:
+                        available_positions.append((new_row, new_col))
                 else:
-                    break
+                    break  # Outside the board
 
         return available_positions

@@ -33,7 +33,7 @@ class TestBishop(unittest.TestCase):
         expected_positions = {(2, 2), (1, 1), (0, 0), (4, 4), (5, 5), (6, 6), (7, 7),
                               (2, 4), (1, 5), (0, 6), (4, 2), (5, 1), (6, 0), (4, 4), }
         available_positions = set(bishop.available_moves(self.chessboard))
-        self.assertEqual(available_positions, expected_positions)
+        self.assertEqual(expected_positions, available_positions)
 
     def test_available_moves_with_blockage(self):
         bishop = Bishop(TChessField(3, 3), ESide.WHITE)
@@ -42,7 +42,7 @@ class TestBishop(unittest.TestCase):
         self.chessboard.get_field(4, 4).occupied_by = blocking_piece
         expected_positions = {(2, 2), (1, 1), (0, 0), (2, 4), (1, 5), (0, 6), (4, 2), (5, 1), (6, 0)}
         available_positions = set(bishop.available_moves(self.chessboard))
-        self.assertEqual(available_positions, expected_positions)
+        self.assertEqual(expected_positions, available_positions)
 
     def test_available_moves_capturing(self):
         bishop = Bishop(TChessField(3, 3), ESide.WHITE)
@@ -52,7 +52,7 @@ class TestBishop(unittest.TestCase):
         # Bishop should be able to move to (4, 4) but not beyond
         expected_positions = {(2, 2), (1, 1), (0, 0), (4, 4), (2, 4), (1, 5), (0, 6), (4, 2), (5, 1), (6, 0)}
         available_positions = set(bishop.available_moves(self.chessboard))
-        self.assertEqual(available_positions, expected_positions)
+        self.assertEqual(expected_positions, available_positions)
 
 
 if __name__ == '__main__':
